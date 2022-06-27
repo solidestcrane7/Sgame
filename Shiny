@@ -1,0 +1,1542 @@
+-- Script GUID: {81EC8FD5-229E-44FE-94CC-343B25C6444F}
+-- Decompiled with the Synapse X Luau decompiler.
+
+local l__ReplicatedStorage__1 = game:GetService("ReplicatedStorage");
+local l__Velocity__2 = l__ReplicatedStorage__1.Velocity;
+local l__LocalPlayer__3 = game:GetService("Players").LocalPlayer;
+while true do
+	wait();
+	if l__LocalPlayer__3.Character and l__LocalPlayer__3.Character.Humanoid then
+		break;
+	end;
+end;
+local l__Character__4 = l__LocalPlayer__3.Character;
+local l__Humanoid__5 = l__Character__4.Humanoid;
+mouse = l__LocalPlayer__3:GetMouse();
+cam = workspace.CurrentCamera;
+l__ReplicatedStorage__1.Stand:FireServer("TheWorldGreatestHighStand", 25, 285);
+wait(1.5);
+local l__Stand__6 = l__Character__4:WaitForChild("Stand");
+local l__StandHumanoidRootPart__7 = l__Stand__6:WaitForChild("StandHumanoidRootPart");
+local l__Stand_Head__8 = l__Stand__6:WaitForChild("Stand Head");
+local l__TouchEnabled__9 = game:GetService("UserInputService").TouchEnabled;
+local l__ContextActionService__10 = game:GetService("ContextActionService");
+local v11 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.Roller);
+local v12 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.IceShatter);
+local v13 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.Grab);
+local l__RoadRoller__14 = l__StandHumanoidRootPart__7.RoadRoller;
+local l__Iceshatter__15 = l__StandHumanoidRootPart__7.Iceshatter;
+local u1 = false;
+local u2 = false;
+local u3 = false;
+local u4 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.Nothing);
+local u5 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.Idle);
+local l__StandAppear__6 = l__StandHumanoidRootPart__7.StandAppear;
+local l__THTrail__7 = l__ReplicatedStorage__1.THTrail;
+local l__Stand_Torso__8 = l__Stand__6:WaitForChild("Stand Torso");
+local l__Stand_Right_Arm__9 = l__Stand__6:WaitForChild("Stand Right Arm");
+local l__Stand_Left_Arm__10 = l__Stand__6:WaitForChild("Stand Left Arm");
+local l__Stand_Right_Leg__11 = l__Stand__6:WaitForChild("Stand Right Leg");
+local l__Stand_Left_Leg__12 = l__Stand__6:WaitForChild("Stand Left Leg");
+local l__Transparency__13 = l__ReplicatedStorage__1.Transparency;
+local l__face__14 = l__Stand_Head__8:WaitForChild("face");
+function standappear(p1)
+	if u1 == true then
+		return;
+	end;
+	if u2 == true then
+		return;
+	end;
+	u2 = true;
+	if u3 == false then
+		u3 = true;
+		u4:Stop();
+		u5:Play(0.2, 1, 1);
+		l__StandAppear__6:Play();
+		l__THTrail__7:FireServer(l__Stand_Head__8.Aura, true);
+		l__THTrail__7:FireServer(l__Stand_Torso__8.Aura, true);
+		l__THTrail__7:FireServer(l__Stand_Right_Arm__9.Aura, true);
+		l__THTrail__7:FireServer(l__Stand_Left_Arm__10.Aura, true);
+		l__THTrail__7:FireServer(l__Stand_Right_Leg__11.Aura, true);
+		l__THTrail__7:FireServer(l__Stand_Left_Leg__12.Aura, true);
+		local v16, v17, v18 = pairs(p1:GetChildren());
+		while true do
+			local v19, v20 = v16(v17, v18);
+			if v19 then
+
+			else
+				break;
+			end;
+			v18 = v19;
+			coroutine.resume(coroutine.create(function()
+				local v21 = 1 - 1;
+				while true do
+					if v20 ~= l__StandHumanoidRootPart__7 then
+						if v20.ClassName ~= "Sound" then
+							if v20 ~= p1.StandRarm then
+								if v20 ~= p1.StandLarm then
+									wait();
+									l__Transparency__13:FireServer(v20, v20.Transparency - 0.2);
+									l__Transparency__13:FireServer(l__face__14, v20.Transparency - 0.2);
+								end;
+							end;
+						end;
+					end;
+					if 0 <= 1 then
+						if v21 < 5 then
+
+						else
+							break;
+						end;
+					elseif 5 < v21 then
+
+					else
+						break;
+					end;
+					v21 = v21 + 1;				
+				end;
+				if v20 ~= l__StandHumanoidRootPart__7 then
+					if v20 ~= p1.StandRarm then
+						if v20 ~= p1.StandLarm then
+							l__Transparency__13:FireServer(v20, 0);
+							l__Transparency__13:FireServer(l__face__14, 0);
+						end;
+					end;
+				end;
+			end));		
+		end;
+	elseif u3 == true then
+		u3 = false;
+		u5:Stop();
+		u4:Play(0.2, 1, 1);
+		l__THTrail__7:FireServer(l__Stand_Head__8.Aura, false);
+		l__THTrail__7:FireServer(l__Stand_Torso__8.Aura, false);
+		l__THTrail__7:FireServer(l__Stand_Right_Arm__9.Aura, false);
+		l__THTrail__7:FireServer(l__Stand_Left_Arm__10.Aura, false);
+		l__THTrail__7:FireServer(l__Stand_Right_Leg__11.Aura, false);
+		l__THTrail__7:FireServer(l__Stand_Left_Leg__12.Aura, false);
+		local v22, v23, v24 = pairs(p1:GetChildren());
+		while true do
+			local v25, v26 = v22(v23, v24);
+			if v25 then
+
+			else
+				break;
+			end;
+			v24 = v25;
+			coroutine.resume(coroutine.create(function()
+				local v27 = 1 - 1;
+				while true do
+					if v26 ~= l__StandHumanoidRootPart__7 then
+						if v26.ClassName ~= "Sound" then
+							if v26 ~= p1.StandRarm then
+								if v26 ~= p1.StandLarm then
+									wait();
+									l__Transparency__13:FireServer(v26, v26.Transparency + 0.2);
+									l__Transparency__13:FireServer(l__face__14, v26.Transparency + 0.2);
+								end;
+							end;
+						end;
+					end;
+					if 0 <= 1 then
+						if v27 < 5 then
+
+						else
+							break;
+						end;
+					elseif 5 < v27 then
+
+					else
+						break;
+					end;
+					v27 = v27 + 1;				
+				end;
+				if v26 ~= l__StandHumanoidRootPart__7 then
+					if v26 ~= p1.StandRarm then
+						if v26 ~= p1.StandLarm then
+							l__Transparency__13:FireServer(v26, 1);
+							l__Transparency__13:FireServer(l__face__14, 1);
+						end;
+					end;
+				end;
+			end));		
+		end;
+	end;
+	wait(2.5);
+	u2 = false;
+end;
+local u15 = false;
+local l__Rush__16 = l__StandHumanoidRootPart__7.Rush;
+local u17 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.AttackPose);
+local l__Trail__18 = l__ReplicatedStorage__1.Trail;
+local u19 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.PunchBarrage);
+local u20 = 0;
+local l__Effect__21 = l__ReplicatedStorage__1.Effect;
+local l__Disabled__22 = l__Character__4:WaitForChild("Disabled");
+local u23 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.KickBarrage);
+local l__Effect2__24 = l__ReplicatedStorage__1.Effect2;
+function barrage()
+	if u1 == true then
+		return;
+	end;
+	if u15 == true then
+		return;
+	end;
+	if u3 == false then
+		return;
+	end;
+	u1 = true;
+	u15 = true;
+	local u25 = true;
+	local v28 = mouse.KeyUp:connect(function(p2)
+		if p2 == "e" then
+			u25 = false;
+		end;
+	end);
+	l__Rush__16:Play();
+	u17:Play();
+	l__Humanoid__5.JumpPower = 0;
+	local v29 = math.random(1, 2);
+	if v29 == 1 then
+		l__Trail__18:FireServer(l__Stand_Right_Arm__9.Trail, true);
+		l__Trail__18:FireServer(l__Stand_Left_Arm__10.Trail, true);
+		u19:Play(0.1, 1, 1.5);
+		while true do
+			u20 = u20 + 1;
+			hito(l__Stand_Right_Arm__9, l__Stand_Right_Arm__9.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 2, 5.5, 0.1, 0.25, l__StandHumanoidRootPart__7.CFrame.lookVector * 2.5, "rbxassetid://285779645", 0.075, Color3.new(255, 255, 255), "rbxassetid://367499850", math.random(9, 11) / 10, math.random(9, 11) / 50);
+			hito(l__Stand_Left_Arm__10, l__Stand_Left_Arm__10.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 2, 5.5, 0.1, 0.25, l__StandHumanoidRootPart__7.CFrame.lookVector * 2.5, "rbxassetid://285779645", 0.075, Color3.new(255, 255, 255), "rbxassetid://367499850", math.random(9, 11) / 10, math.random(9, 11) / 50);
+			l__Effect__21:FireServer();
+			wait(0.1);
+			if u25 ~= false then
+
+			else
+				break;
+			end;
+			if l__Disabled__22.Value ~= true then
+
+			else
+				break;
+			end;
+			if not (40 <= u20) then
+
+			else
+				break;
+			end;		
+		end;
+	elseif v29 == 2 then
+		l__Trail__18:FireServer(l__Stand_Right_Leg__11.Trail, true);
+		u23:Play(0.1, 1, 1.75);
+		while true do
+			u20 = u20 + 1;
+			hito(l__Stand_Right_Leg__11, l__Stand_Right_Leg__11.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 3, 5.5, 0.1, 0.25, l__StandHumanoidRootPart__7.CFrame.lookVector * 2.5, "rbxassetid://285779645", 0.075, Color3.new(255, 255, 255), "rbxassetid://367499850", math.random(9, 11) / 10, math.random(9, 11) / 50);
+			l__Effect2__24:FireServer();
+			wait(0.1);
+			if u25 ~= false then
+
+			else
+				break;
+			end;
+			if l__Disabled__22.Value ~= true then
+
+			else
+				break;
+			end;
+			if not (40 <= u20) then
+
+			else
+				break;
+			end;		
+		end;
+	end;
+	u20 = 0;
+	l__Rush__16:Stop();
+	u17:Stop();
+	l__Humanoid__5.JumpPower = 50;
+	u19:Stop(0.1);
+	u23:Stop(0.1);
+	l__Trail__18:FireServer(l__Stand_Right_Arm__9.Trail, false);
+	l__Trail__18:FireServer(l__Stand_Left_Arm__10.Trail, false);
+	l__Trail__18:FireServer(l__Stand_Right_Leg__11.Trail, false);
+	u1 = false;
+	wait(3);
+	u15 = false;
+end;
+local u26 = false;
+local l__Teleport__27 = l__StandHumanoidRootPart__7.Teleport;
+function tsteleport()
+	if u1 == true then
+		return;
+	end;
+	if u26 == true then
+		return;
+	end;
+	local l__p__30 = mouse.Hit.p;
+	if (l__Character__4.HumanoidRootPart.Position - l__p__30).magnitude < 35 then
+		u26 = true;
+		l__Character__4.HumanoidRootPart.CFrame = CFrame.new(l__p__30) + Vector3.new(0, 2, 0);
+		l__Teleport__27:Play();
+		if game.Lighting.TS.Value == false then
+			game.Lighting.STWEffect.Enabled = true;
+			spawn(function()
+				wait(0.2);
+				game.Lighting.STWEffect.Enabled = false;
+			end);
+		end;
+		wait(5);
+		u26 = false;
+	end;
+end;
+local u28 = false;
+local u29 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.BloodSuck);
+local l__Punch__30 = l__StandHumanoidRootPart__7.Punch;
+local l__Bloodsuck__31 = l__StandHumanoidRootPart__7.Bloodsuck;
+local u32 = false;
+function bloodsuck()
+	if u1 == true then
+		return;
+	end;
+	if u28 == true then
+		return;
+	end;
+	u28 = true;
+	u1 = true;
+	l__Humanoid__5.JumpPower = 0;
+	u29:Play(0.1, 1, 1);
+	l__Trail__18:FireServer(l__Stand__6.StandRarm.Trail, true);
+	wait(0.5);
+	l__Punch__30:Play();
+	l__Bloodsuck__31:Play();
+	coroutine.resume(coroutine.create(function()
+		local v31 = 1 - 1;
+		while true do
+			wait();
+			hito3(l__Stand__6.StandRarm, 2.5, 30, 0.5, 0.25, l__StandHumanoidRootPart__7.CFrame.lookVector * 0);
+			if 0 <= 1 then
+				if v31 < 10 then
+
+				else
+					break;
+				end;
+			elseif 10 < v31 then
+
+			else
+				break;
+			end;
+			v31 = v31 + 1;		
+		end;
+	end));
+	wait(0.65);
+	if u32 == false then
+		l__Humanoid__5.JumpPower = 50;
+		u1 = false;
+		l__Trail__18:FireServer(l__Stand__6.StandRarm.Trail, false);
+	end;
+	wait(10);
+	u28 = false;
+end;
+local u33 = false;
+local u34 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.Block);
+local l__Block__35 = l__ReplicatedStorage__1.Block;
+local l__Guard__36 = l__StandHumanoidRootPart__7.Guard;
+function block()
+	if u33 == true then
+		return;
+	end;
+	if u1 == true then
+		return;
+	end;
+	if u3 == false then
+		return;
+	end;
+	u1 = true;
+	local u37 = true;
+	local v32 = mouse.KeyUp:connect(function(p3)
+		if p3 == "x" then
+			u37 = false;
+		end;
+	end);
+	u34:Play(0.1, 1, 1);
+	l__Block__35:FireServer(true);
+	u33 = true;
+	l__Guard__36:Play();
+	l__Humanoid__5.JumpPower = 0;
+	while true do
+		wait();
+		if u37 ~= false then
+
+		else
+			break;
+		end;	
+	end;
+	l__Block__35:FireServer(false);
+	u34:Stop(0.1);
+	l__Humanoid__5.JumpPower = 50;
+	u1 = false;
+	wait(3);
+	u33 = false;
+end;
+local u38 = false;
+local u39 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.RightPunch);
+local u40 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.LeftPunch);
+function punch()
+	if u1 == true then
+		return;
+	end;
+	if u3 == false then
+		return;
+	end;
+	u1 = true;
+	l__Punch__30:Play();
+	u17:Play();
+	l__Humanoid__5.JumpPower = 0;
+	if u38 == false then
+		u38 = true;
+		u39:Play(0.1, 1, 1);
+		l__Trail__18:FireServer(l__Stand_Right_Arm__9.Trail, true);
+		wait(0.2);
+		coroutine.resume(coroutine.create(function()
+			local v33 = 1 - 1;
+			while true do
+				wait();
+				hito(l__Stand_Right_Arm__9, l__Stand_Right_Arm__9.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 2.5, 11, 0.5, 0.25, l__StandHumanoidRootPart__7.CFrame.lookVector * 10, "rbxassetid://285779645", 0.075, Color3.new(255, 255, 255), "rbxassetid://367499850", math.random(9, 11) / 10, math.random(9, 11) / 25);
+				if 0 <= 1 then
+					if v33 < 5 then
+
+					else
+						break;
+					end;
+				elseif 5 < v33 then
+
+				else
+					break;
+				end;
+				v33 = v33 + 1;			
+			end;
+		end));
+	elseif u38 == true then
+		u38 = false;
+		u40:Play(0.1, 1, 1);
+		l__Trail__18:FireServer(l__Stand_Left_Arm__10.Trail, true);
+		wait(0.2);
+		coroutine.resume(coroutine.create(function()
+			local v34 = 1 - 1;
+			while true do
+				wait();
+				hito(l__Stand_Left_Arm__10, l__Stand_Left_Arm__10.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 2.5, 11, 0.5, 0.25, l__StandHumanoidRootPart__7.CFrame.lookVector * 10, "rbxassetid://285779645", 0.075, Color3.new(255, 255, 255), "rbxassetid://367499850", math.random(9, 11) / 10, math.random(9, 11) / 25);
+				if 0 <= 1 then
+					if v34 < 5 then
+
+					else
+						break;
+					end;
+				elseif 5 < v34 then
+
+				else
+					break;
+				end;
+				v34 = v34 + 1;			
+			end;
+		end));
+	end;
+	wait(0.3);
+	u17:Stop();
+	l__Humanoid__5.JumpPower = 50;
+	u1 = false;
+	l__Trail__18:FireServer(l__Stand_Right_Arm__9.Trail, false);
+	l__Trail__18:FireServer(l__Stand_Left_Arm__10.Trail, false);
+end;
+local u41 = false;
+local l__HeavyPunch__42 = l__StandHumanoidRootPart__7.HeavyPunch;
+local u43 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.StrongPunch);
+local l__StrongPunch__44 = l__ReplicatedStorage__1.StrongPunch;
+function strongpunch()
+	if u1 == true then
+		return;
+	end;
+	if u41 == true then
+		return;
+	end;
+	if u3 == false then
+		return;
+	end;
+	u1 = true;
+	u41 = true;
+	l__HeavyPunch__42:Play();
+	u17:Play();
+	l__Humanoid__5.JumpPower = 0;
+	u43:Play(0.1, 1, 1);
+	l__Trail__18:FireServer(l__Stand_Right_Arm__9.Trail, true);
+	wait(0.5);
+	l__StrongPunch__44:FireServer(Vector3.new(1, 0.5, 1), Vector3.new(0.3, 0.15, 0.3), BrickColor.new("Institutional white"));
+	coroutine.resume(coroutine.create(function()
+		local v35 = 1 - 1;
+		while true do
+			wait();
+			hito2(l__Stand_Right_Arm__9, l__Stand_Right_Arm__9.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 3, 36, 0.75, 0.25, l__StandHumanoidRootPart__7.CFrame.lookVector * 50, "rbxassetid://285779645", 0.075, Color3.new(255, 255, 255), "rbxassetid://367499850", math.random(9, 11) / 10, math.random(9, 11) / 10);
+			if 0 <= 1 then
+				if v35 < 15 then
+
+				else
+					break;
+				end;
+			elseif 15 < v35 then
+
+			else
+				break;
+			end;
+			v35 = v35 + 1;		
+		end;
+	end));
+	wait(0.65);
+	l__Trail__18:FireServer(l__Stand_Right_Arm__9.Trail, false);
+	u17:Stop();
+	l__Humanoid__5.JumpPower = 50;
+	u1 = false;
+	wait(5);
+	u41 = false;
+end;
+local u45 = false;
+local u46 = false;
+local l__HumanoidRootPart__47 = l__Character__4.HumanoidRootPart;
+local l__Donut__48 = l__ReplicatedStorage__1.Donut;
+function donut()
+	if u1 == true then
+		return;
+	end;
+	if u45 == true then
+		return;
+	end;
+	if u46 == true then
+		return;
+	end;
+	if game.Lighting.TS.Value == true then
+		return;
+	end;
+	if game.Lighting.TSing.Value == true then
+		return;
+	end;
+	if u3 == false then
+		return;
+	end;
+	if mouse.Target then
+		if mouse.Target.Parent:FindFirstChild("Humanoid") then
+			if (mouse.Target.Parent:FindFirstChild("HumanoidRootPart").Position - l__HumanoidRootPart__47.Position).magnitude < 40 then
+				u45 = true;
+				l__Donut__48:FireServer(mouse.Target.Parent, 50);
+				wait(20);
+				u45 = false;
+			end;
+		end;
+	end;
+end;
+local u49 = false;
+local u50 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.KnifeThrow);
+local l__Knife__51 = l__ReplicatedStorage__1.Knife;
+function knifethrow()
+	if u1 == true then
+		return;
+	end;
+	if u49 == true then
+		return;
+	end;
+	u49 = true;
+	u1 = true;
+	u50:Play(0.1, 1, 1);
+	l__Transparency__13:FireServer(l__Character__4.HoldKnife, 0);
+	l__Humanoid__5.JumpPower = 0;
+	wait(0.5);
+	l__Knife__51:FireServer();
+	l__Punch__30:Play();
+	l__Transparency__13:FireServer(l__Character__4.HoldKnife, 1);
+	wait(0.5);
+	u1 = false;
+	l__Humanoid__5.JumpPower = 50;
+	if l__Character__4.TS.Value == false then
+		wait(2);
+		u49 = false;
+		return;
+	end;
+	if l__Character__4.TS.Value == true then
+		u49 = false;
+	end;
+end;
+local u52 = false;
+local u53 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.Lunge);
+local l__Voice1__54 = l__StandHumanoidRootPart__7.Voice1;
+function freeze()
+	if u1 == true then
+		return;
+	end;
+	if u52 == true then
+		return;
+	end;
+	u52 = true;
+	u1 = true;
+	l__Humanoid__5.JumpPower = 0;
+	u53:Play(0.1, 1, 1);
+	l__Trail__18:FireServer(l__Stand__6.StandRarm.Trail, true);
+	l__Trail__18:FireServer(l__Stand__6.StandLarm.Trail, true);
+	l__Voice1__54:Play();
+	wait(0.5);
+	l__Punch__30:Play();
+	coroutine.resume(coroutine.create(function()
+		local v36 = 1 - 1;
+		while true do
+			wait();
+			hito4(l__Stand__6.StandRarm, 2.5, 75, 1, 0.75, l__StandHumanoidRootPart__7.CFrame.lookVector * 50);
+			hito4(l__Stand__6.StandLarm, 2.5, 75, 1, 0.75, l__StandHumanoidRootPart__7.CFrame.lookVector * 50);
+			if 0 <= 1 then
+				if v36 < 15 then
+
+				else
+					break;
+				end;
+			elseif 15 < v36 then
+
+			else
+				break;
+			end;
+			v36 = v36 + 1;		
+		end;
+	end));
+	wait(0.65);
+	if u32 == false then
+		u1 = false;
+		l__Humanoid__5.JumpPower = 50;
+		l__Trail__18:FireServer(l__Stand__6.StandRarm.Trail, false);
+		l__Trail__18:FireServer(l__Stand__6.StandLarm.Trail, false);
+	end;
+	wait(25);
+	u52 = false;
+end;
+local u55 = false;
+local u56 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.StandJump);
+local l__StandJumpSFX__57 = l__StandHumanoidRootPart__7.StandJumpSFX;
+local l__Jump__58 = l__ReplicatedStorage__1.Jump;
+function movement()
+	if u1 == true then
+		return;
+	end;
+	if u55 == true then
+		return;
+	end;
+	if u3 == false then
+		return;
+	end;
+	u55 = true;
+	u1 = true;
+	u56:Play(0.1, 1, 1);
+	l__StandJumpSFX__57:Play();
+	l__Jump__58:FireServer(BrickColor.new("Institutional white"));
+	local v37 = Instance.new("BodyPosition", l__HumanoidRootPart__47);
+	v37.maxForce = Vector3.new(100000, 100000, 100000);
+	v37.Position = l__HumanoidRootPart__47.CFrame * CFrame.new(0, 50, -75).p;
+	game.Debris:AddItem(v37, 1);
+	wait(1);
+	u1 = false;
+	wait(14);
+	u55 = false;
+end;
+local u59 = false;
+local u60 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.SpaceRipper);
+local l__StingyEyes__61 = l__StandHumanoidRootPart__7.StingyEyes;
+local l__SpaceRipperStingyEyes__62 = l__ReplicatedStorage__1.SpaceRipperStingyEyes;
+function spaceripperstingyeyes()
+	if u59 == true then
+		return;
+	end;
+	if u1 == true then
+		return;
+	end;
+	u1 = true;
+	u59 = true;
+	u60:Play(0.1, 1, 1);
+	wait(0.6);
+	l__StingyEyes__61:Play();
+	l__SpaceRipperStingyEyes__62:FireServer();
+	wait(0.3);
+	u1 = false;
+	wait(7.5);
+	u59 = false;
+end;
+local u63 = true;
+local u64 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.TS);
+local l__Timestop__65 = l__ReplicatedStorage__1.Timestop;
+local l__Untimestop__66 = l__ReplicatedStorage__1.Untimestop;
+function timestop()
+	if u1 == true then
+		return;
+	end;
+	if u63 == true then
+		return;
+	end;
+	if u46 == true then
+		return;
+	end;
+	if game.Lighting.TS.Value == true then
+		return;
+	end;
+	if game.Lighting.TSing.Value == true then
+		return;
+	end;
+	if game.Lighting.TS.Value == true then
+		return;
+	end;
+	if u3 == false then
+		return;
+	end;
+	u1 = true;
+	u63 = true;
+	u64:Play(0.1, 1, 1);
+	l__Humanoid__5.WalkSpeed = 0;
+	l__Humanoid__5.JumpPower = 0;
+	wait(1.5);
+	u46 = true;
+	u64.Stopped:Wait();
+	l__Timestop__65:FireServer(6.5, "dio");
+	wait(1.5);
+	l__Humanoid__5.WalkSpeed = 16;
+	l__Humanoid__5.JumpPower = 50;
+	u1 = false;
+	wait(9);
+	u46 = false;
+	u1 = false;
+	l__Untimestop__66:FireServer();
+	wait(140);
+	u63 = false;
+end;
+function untimestop()
+	l__Untimestop__66:FireServer();
+end;
+local u67 = false;
+local u68 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.Pose1);
+local l__Theme__69 = l__StandHumanoidRootPart__7.Theme;
+local u70 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.Pose2);
+local l__Menacing__71 = l__ReplicatedStorage__1.Menacing;
+function posefunc()
+	if u1 == false then
+		if u67 == false then
+			if u3 == false then
+				return;
+			end;
+			if u67 == false then
+				u1 = true;
+				u67 = true;
+				local v38 = math.random(1, 2);
+				if v38 == 1 then
+					u68:Play(0.1, 1, 1);
+					l__Theme__69:Play();
+				elseif v38 == 2 then
+					u70:Play(0.1, 1, 1);
+					l__Theme__69:Play();
+				end;
+				l__Humanoid__5.WalkSpeed = 0;
+				l__Humanoid__5.JumpPower = 0;
+				l__Menacing__71:FireServer(true);
+				return;
+			end;
+		elseif u67 == true then
+			u68:Stop(0.3);
+			u70:Stop(0.3);
+			l__Theme__69:Stop();
+			if l__Disabled__22.Value == false then
+				l__Humanoid__5.WalkSpeed = 16;
+				l__Humanoid__5.JumpPower = 50;
+			elseif l__Disabled__22.Value == true then
+				l__Humanoid__5.WalkSpeed = 4;
+				l__Humanoid__5.JumpPower = 10;
+			end;
+			u1 = false;
+			u67 = false;
+			l__Menacing__71:FireServer(false);
+		end;
+	elseif u67 == true then
+		u68:Stop(0.3);
+		u70:Stop(0.3);
+		l__Theme__69:Stop();
+		if l__Disabled__22.Value == false then
+			l__Humanoid__5.WalkSpeed = 16;
+			l__Humanoid__5.JumpPower = 50;
+		elseif l__Disabled__22.Value == true then
+			l__Humanoid__5.WalkSpeed = 4;
+			l__Humanoid__5.JumpPower = 10;
+		end;
+		u1 = false;
+		u67 = false;
+		l__Menacing__71:FireServer(false);
+	end;
+end;
+local u72 = true;
+local u73 = false;
+local l__RoadRoller__74 = l__StandHumanoidRootPart__7.RoadRoller;
+local u75 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.phase1);
+local u76 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.phase2);
+local l__RoadRollerExplosion__77 = l__ReplicatedStorage__1.RoadRollerExplosion;
+local u78 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.phase3);
+local l__Connector__79 = l__Character__4.Steamroller.Connector;
+local u80 = 0;
+function roadroller()
+	if u3 == false then
+		return;
+	end;
+	if u1 == true then
+		return;
+	end;
+	if u72 == true then
+		return;
+	end;
+	if game.Lighting.TSing.Value == true then
+		return;
+	end;
+	u1 = true;
+	u72 = true;
+	u73 = true;
+	u46 = true;
+	l__Humanoid__5.WalkSpeed = 0;
+	l__Humanoid__5.JumpPower = 0;
+	l__RoadRoller__74:Play();
+	u75:Play();
+	l__Block__35:FireServer(true);
+	l__Timestop__65:FireServer(9, "dior");
+	wait(0.1);
+	wait(4);
+	u76:Play(0.1, 1, 1);
+	local v39, v40, v41 = pairs(l__Character__4.Steamroller:GetChildren());
+	while true do
+		local v42, v43 = v39(v40, v41);
+		if v42 then
+
+		else
+			break;
+		end;
+		v41 = v42;
+		coroutine.resume(coroutine.create(function()
+			local v44 = 1 - 1;
+			while true do
+				if v43.ClassName == "UnionOperation" then
+					wait();
+					l__Transparency__13:FireServer(v43, v43.Transparency - 0.2);
+				end;
+				if 0 <= 1 then
+					if v44 < 5 then
+
+					else
+						break;
+					end;
+				elseif 5 < v44 then
+
+				else
+					break;
+				end;
+				v44 = v44 + 1;			
+			end;
+			if v43.ClassName == "UnionOperation" then
+				l__Transparency__13:FireServer(v43, 0);
+			end;
+		end));	
+	end;
+	wait(1.2);
+	wait(2);
+	wait(1.3);
+	l__RoadRollerExplosion__77:FireServer(1);
+	u78:Play(0.1, 1, 1.15);
+	hito5(l__Connector__79, 17, 45, 0.75, 0.25, Vector3.new(0, 0, 0));
+	wait(0.1);
+	wait(0.5);
+	while true do
+		u80 = u80 + 1;
+		hito5(l__Connector__79, 17, 6, 0.1, 0.25, Vector3.new(0, 0, 0));
+		wait(0.2);
+		if not (10 <= u80) then
+
+		else
+			break;
+		end;	
+	end;
+	u80 = 0;
+	wait(0.1);
+	wait(1.3);
+	l__RoadRollerExplosion__77:FireServer(2);
+	hito5(l__Connector__79, 22.5, 65, 0.75, 0.25, Vector3.new(2.5, 2.5, 0));
+	wait(0.1);
+	wait(0.1);
+	u78.Stopped:Wait();
+	local v45, v46, v47 = pairs(l__Character__4.Steamroller:GetChildren());
+	while true do
+		local v48, v49 = v45(v46, v47);
+		if v48 then
+
+		else
+			break;
+		end;
+		v47 = v48;
+		coroutine.resume(coroutine.create(function()
+			local v50 = 1 - 1;
+			while true do
+				if v49.ClassName == "UnionOperation" then
+					wait();
+					l__Transparency__13:FireServer(v49, v49.Transparency + 0.2);
+				end;
+				if 0 <= 1 then
+					if v50 < 5 then
+
+					else
+						break;
+					end;
+				elseif 5 < v50 then
+
+				else
+					break;
+				end;
+				v50 = v50 + 1;			
+			end;
+			if v49.ClassName == "UnionOperation" then
+				l__Transparency__13:FireServer(v49, 1);
+			end;
+		end));	
+	end;
+	l__Humanoid__5.WalkSpeed = 16;
+	l__Humanoid__5.JumpPower = 50;
+	l__Block__35:FireServer(false);
+	u1 = false;
+	u46 = false;
+	wait(90);
+	u72 = false;
+end;
+dodgecooldown = false;
+local u81 = l__Humanoid__5:LoadAnimation(l__StandHumanoidRootPart__7.Roll);
+local l__Dodge__82 = l__StandHumanoidRootPart__7.Dodge;
+local l__Dodge__83 = l__ReplicatedStorage__1.Dodge;
+function dodge()
+	if u1 == true then
+		return;
+	end;
+	if dodgecooldown == true then
+		return;
+	end;
+	u1 = true;
+	dodgecooldown = true;
+	u81:Play();
+	l__Dodge__82:Play();
+	l__Dodge__83:FireServer();
+	local v51 = Instance.new("BodyVelocity");
+	v51.MaxForce = Vector3.new(100000, 0, 100000);
+	v51.P = math.huge;
+	v51.Velocity = l__HumanoidRootPart__47.CFrame.lookVector * 50;
+	v51.Parent = l__Character__4.HumanoidRootPart;
+	game.Debris:AddItem(v51, 0.25);
+	wait(0.4);
+	u1 = false;
+	wait(3);
+	dodgecooldown = false;
+end;
+local u84 = false;
+local l__Taunt__85 = l__ReplicatedStorage__1.Taunt;
+local l__Head__86 = l__Character__4.Head;
+function taunt()
+	if u84 == true then
+		return;
+	end;
+	u84 = true;
+	local v52 = math.random(1, 4);
+	if v52 == 1 then
+		l__Taunt__85:FireServer(l__Head__86, "Filth.", "rbxassetid://616576465", 3, 1, 0);
+		return;
+	end;
+	if v52 == 2 then
+		l__Taunt__85:FireServer(l__Head__86, "If I were playing a game of chess with trash like you, I would've had you in checkmate ages ago.", "rbxassetid://616594208", 3, 5.2, 0.2);
+		return;
+	end;
+	if v52 == 3 then
+		l__Taunt__85:FireServer(l__Head__86, "ABSOLUTE WEAKLING!", "rbxassetid://794068813", 3, 2.62, 0.2);
+		return;
+	end;
+	if v52 == 4 then
+		l__Taunt__85:FireServer(l__Head__86, "WRRRRRRRRRRYYYYYYYYYYYYY!", "rbxassetid://955633944", 3, 3.1, 0);
+	end;
+end;
+local l__Torso__87 = l__Character__4.Torso;
+mouse.Button1Down:connect(function()
+	if l__Torso__87.Anchored == true then
+		return;
+	end;
+	if l__Disabled__22.Value == true then
+		return;
+	end;
+	punch();
+end);
+if l__TouchEnabled__9 == false then
+	mouse.KeyDown:connect(function(p4)
+		if l__Torso__87.Anchored == true then
+			return;
+		end;
+		if l__Disabled__22.Value == true then
+			return;
+		end;
+		if p4 == "q" then
+			standappear(l__Stand__6);
+		end;
+		if p4 == "e" then
+			barrage();
+		end;
+		if p4 == "r" then
+			strongpunch();
+		end;
+		if p4 == "t" then
+			knifethrow();
+		end;
+		if p4 == "v" then
+			spaceripperstingyeyes();
+		end;
+		if p4 == "u" then
+			tsteleport();
+		end;
+		if p4 == "b" then
+			freeze();
+		end;
+		if p4 == "y" then
+			bloodsuck();
+		end;
+		if p4 == "x" then
+			block();
+		end;
+		if p4 == "f" and l__LocalPlayer__3.Data.Requiem.Value == true and game.Workspace.TSCooldown.Value ~= true then
+			if game.Lighting.TS.Value == false then
+				timestop();
+			elseif game.Lighting.TS.Value == true then
+				untimestop();
+			end;
+		end;
+		if p4 == "z" then
+			movement();
+		end;
+		if p4 == "c" then
+			dodge();
+		end;
+		if p4 == "j" then
+			roadroller();
+		end;
+		if p4 == "g" then
+			posefunc();
+		end;
+		if p4 == "n" then
+			taunt();
+		end;
+	end);
+elseif l__TouchEnabled__9 == true then
+	local function v53(p5, p6, p7)
+		if p5 == "qmove" then
+			if p6 == Enum.UserInputState.Begin then
+				standappear(l__Stand__6);
+				return;
+			else
+				standappear(l__Stand__6);
+				return;
+			end;
+		end;
+		if p5 == "emove" then
+			if p6 == Enum.UserInputState.Begin then
+				barrage(l__Stand__6);
+				return;
+			end;
+		elseif p5 == "rmove" then
+			if p6 == Enum.UserInputState.Begin then
+				strongpunch(l__Stand__6);
+				return;
+			end;
+		elseif p5 == "tmove" then
+			if p6 == Enum.UserInputState.Begin then
+				knifethrow(l__Stand__6);
+				return;
+			end;
+		elseif p5 == "fmove" then
+			if p6 == Enum.UserInputState.Begin then
+				if game.Lighting.TS.Value == false then
+					timestop(l__Stand__6);
+					return;
+				end;
+				if game.Lighting.TS.Value == true then
+					untimestop(l__Stand__6);
+					return;
+				end;
+			end;
+		elseif p5 == "zmove" then
+			if p6 == Enum.UserInputState.Begin then
+				roadroller(l__Stand__6);
+				return;
+			end;
+		elseif p5 == "vmove" then
+			if p6 == Enum.UserInputState.Begin then
+				roadroller(l__Stand__6);
+				return;
+			end;
+		elseif p5 == "gmove" and p6 == Enum.UserInputState.Begin then
+			posefunc(l__Stand__6);
+		end;
+	end;
+	local v54 = l__ContextActionService__10:BindAction("qmove", v53, true, Enum.KeyCode.Q, Enum.KeyCode.ButtonY);
+	l__ContextActionService__10:SetPosition("qmove", UDim2.new(0.186, 0, 0.594, 0));
+	l__ContextActionService__10:SetImage("qmove", "http://www.roblox.com/asset/?id=2527439410");
+	local v55 = l__ContextActionService__10:BindAction("emove", v53, true, Enum.KeyCode.E, Enum.KeyCode.ButtonY);
+	l__ContextActionService__10:SetPosition("emove", UDim2.new(0.078, -400, 0.2, -25));
+	l__ContextActionService__10:SetImage("emove", "http://www.roblox.com/asset/?id=5509181191");
+	local v56 = l__ContextActionService__10:BindAction("rmove", v53, true, Enum.KeyCode.R, Enum.KeyCode.ButtonY);
+	l__ContextActionService__10:SetPosition("rmove", UDim2.new(0.078, -350, 0.2, -25));
+	l__ContextActionService__10:SetImage("rmove", "http://www.roblox.com/asset/?id=4522567088");
+	local v57 = l__ContextActionService__10:BindAction("tmove", v53, true, Enum.KeyCode.T, Enum.KeyCode.ButtonY);
+	l__ContextActionService__10:SetPosition("tmove", UDim2.new(0.078, -350, 0.2, 25));
+	l__ContextActionService__10:SetImage("tmove", "http://www.roblox.com/asset/?id=118318552");
+	local v58 = l__ContextActionService__10:BindAction("fmove", v53, true, Enum.KeyCode.F, Enum.KeyCode.ButtonY);
+	l__ContextActionService__10:SetPosition("fmove", UDim2.new(0.078, -400, 0.2, 25));
+	l__ContextActionService__10:SetImage("fmove", "http://www.roblox.com/asset/?id=189527927");
+	local v59 = l__ContextActionService__10:BindAction("zmove", v53, true, Enum.KeyCode.Z, Enum.KeyCode.ButtonY);
+	l__ContextActionService__10:SetPosition("zmove", UDim2.new(0.078, -400, 0.2, 75));
+	l__ContextActionService__10:SetImage("zmove", "http://www.roblox.com/asset/?id=4554394447");
+	local v60 = l__ContextActionService__10:BindAction("vmove", v53, true, Enum.KeyCode.V, Enum.KeyCode.ButtonY);
+	l__ContextActionService__10:SetPosition("vmove", UDim2.new(0.078, -350, 0.2, 75));
+	l__ContextActionService__10:SetImage("vmove", "http://www.roblox.com/asset/?id=1171402807");
+	local v61 = l__ContextActionService__10:BindAction("gmove", v53, true, Enum.KeyCode.G, Enum.KeyCode.ButtonY);
+	l__ContextActionService__10:SetPosition("gmove", UDim2.new(0.186, 0, 0.594, -5));
+	l__ContextActionService__10:SetImage("gmove", "http://www.roblox.com/asset/?id=2442867");
+end;
+local l__Damage__88 = l__ReplicatedStorage__1.Damage;
+function hito(p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20)
+	if l__Disabled__22.Value == true then
+		return;
+	end;
+	local v62, v63, v64 = pairs(workspace:GetChildren());
+	while true do
+		local v65, v66 = v62(v63, v64);
+		if v65 then
+
+		else
+			break;
+		end;
+		if p8.Anchored == true then
+			return;
+		end;
+		if v66:FindFirstChild("Humanoid") then
+			if v66:FindFirstChild("HumanoidRootPart") then
+				if v66 ~= l__Character__4 then
+					if (v66:FindFirstChild("HumanoidRootPart").Position - p8.Position).magnitude < p10 then
+						if v66:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+							if p8.Anchored then
+								return;
+							end;
+							local l__HumanoidRootPart__67 = v66:FindFirstChild("HumanoidRootPart");
+							l__Damage__88:FireServer(v66:FindFirstChild("Humanoid"), p9, p11, p13, p14, p15, p16, p17, p18, p19, p20);
+							local v68 = Instance.new("StringValue");
+							v68.Name = "alabo";
+							v68.Parent = l__HumanoidRootPart__67;
+							delay(p12, function()
+								v68:Destroy();
+							end);
+						end;
+					end;
+				end;
+			end;
+		end;
+		if v66:FindFirstChild("Stand") then
+			if v66.Stand:FindFirstChild("Stand Torso") then
+				if v66 ~= l__Character__4 then
+					if v66 ~= l__Character__4[l__Stand__6.Name] then
+						if (v66.Stand:FindFirstChild("Stand Torso").Position - p8.Position).magnitude < p10 then
+							if v66:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+								if p8.Anchored then
+									return;
+								end;
+								local l__HumanoidRootPart__69 = v66:FindFirstChild("HumanoidRootPart");
+								l__Damage__88:FireServer(v66:FindFirstChild("Humanoid"), p9, p11, p13, p14, p15, p16, p17, p18, p19, p20);
+								local v70 = Instance.new("StringValue");
+								v70.Name = "alabo";
+								v70.Parent = l__HumanoidRootPart__69;
+								delay(p12, function()
+									v70:Destroy();
+								end);
+							end;
+						end;
+					end;
+				end;
+			end;
+		end;	
+	end;
+end;
+local l__Knock__89 = l__ReplicatedStorage__1.Knock;
+function hito2(p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33)
+	if l__Disabled__22.Value == true then
+		return;
+	end;
+	local v71, v72, v73 = pairs(workspace:GetChildren());
+	while true do
+		local v74, v75 = v71(v72, v73);
+		if v74 then
+
+		else
+			break;
+		end;
+		if p21.Anchored == true then
+			return;
+		end;
+		if v75:FindFirstChild("Humanoid") then
+			if v75:FindFirstChild("HumanoidRootPart") then
+				if v75 ~= l__Character__4 then
+					if (v75:FindFirstChild("HumanoidRootPart").Position - p21.Position).magnitude < p23 then
+						if v75:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+							if p21.Anchored then
+								return;
+							end;
+							local l__Humanoid__76 = v75:FindFirstChild("Humanoid");
+							local l__HumanoidRootPart__77 = v75:FindFirstChild("HumanoidRootPart");
+							l__Damage__88:FireServer(l__Humanoid__76, p22, p24, p26, p27, p28, p29, p30, p31, p32, p33);
+							l__Knock__89:FireServer(l__Humanoid__76);
+							local v78 = Instance.new("StringValue");
+							v78.Name = "alabo";
+							v78.Parent = l__HumanoidRootPart__77;
+							delay(p25, function()
+								v78:Destroy();
+							end);
+						end;
+					end;
+				end;
+			end;
+		end;
+		if v75:FindFirstChild("Stand") then
+			if v75.Stand:FindFirstChild("Stand Torso") then
+				if v75 ~= l__Character__4 then
+					if v75 ~= l__Character__4[l__Stand__6.Name] then
+						if (v75.Stand:FindFirstChild("Stand Torso").Position - p21.Position).magnitude < p23 then
+							if v75:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+								if p21.Anchored then
+									return;
+								end;
+								local l__Humanoid__79 = v75:FindFirstChild("Humanoid");
+								local l__HumanoidRootPart__80 = v75:FindFirstChild("HumanoidRootPart");
+								l__Damage__88:FireServer(l__Humanoid__79, p22, p24, p26, p27, p28, p29, p30, p31, p32, p33);
+								l__Knock__89:FireServer(l__Humanoid__79);
+								local v81 = Instance.new("StringValue");
+								v81.Name = "alabo";
+								v81.Parent = l__HumanoidRootPart__80;
+								delay(p25, function()
+									v81:Destroy();
+								end);
+							end;
+						end;
+					end;
+				end;
+			end;
+		end;	
+	end;
+end;
+local l__VampireDamage__90 = l__ReplicatedStorage__1.VampireDamage;
+function hito3(p34, p35, p36, p37, p38, p39, p40)
+	local v82, v83, v84 = pairs(workspace:GetChildren());
+	while true do
+		local v85, v86 = v82(v83, v84);
+		if v85 then
+
+		else
+			break;
+		end;
+		v84 = v85;
+		if p34.Anchored == true then
+			return;
+		end;
+		if v86:FindFirstChild("Humanoid") then
+			if v86:FindFirstChild("HumanoidRootPart") then
+				if v86 ~= l__Character__4 then
+					if (v86:FindFirstChild("HumanoidRootPart").Position - p34.Position).magnitude < p35 then
+						if v86:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+							if p34.Anchored then
+								return;
+							end;
+							local l__Humanoid__87 = v86:FindFirstChild("Humanoid");
+							local l__HumanoidRootPart__88 = v86:FindFirstChild("HumanoidRootPart");
+							l__VampireDamage__90:FireServer(l__Humanoid__87, p36, p38, p39, p40);
+							l__Knock__89:FireServer(l__Humanoid__87);
+							local v89 = Instance.new("StringValue");
+							v89.Name = "alabo";
+							v89.Parent = l__HumanoidRootPart__88;
+							delay(p37, function()
+								v89:Destroy();
+							end);
+						end;
+					end;
+				end;
+			end;
+		end;	
+	end;
+end;
+local l__VampireFreeze__91 = l__ReplicatedStorage__1.VampireFreeze;
+function hito4(p41, p42, p43, p44, p45, p46, p47)
+	local v90, v91, v92 = pairs(workspace:GetChildren());
+	while true do
+		local v93, v94 = v90(v91, v92);
+		if v93 then
+
+		else
+			break;
+		end;
+		v92 = v93;
+		if p41.Anchored == true then
+			return;
+		end;
+		if v94:FindFirstChild("Humanoid") then
+			if v94:FindFirstChild("HumanoidRootPart") then
+				if v94 ~= l__Character__4 then
+					if (v94:FindFirstChild("HumanoidRootPart").Position - p41.Position).magnitude < p42 then
+						if v94:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+							if p41.Anchored then
+								return;
+							end;
+							local l__Humanoid__95 = v94:FindFirstChild("Humanoid");
+							local l__HumanoidRootPart__96 = v94:FindFirstChild("HumanoidRootPart");
+							l__VampireFreeze__91:FireServer(l__Humanoid__95, p43, p45, p46, p47);
+							local v97 = Instance.new("StringValue");
+							v97.Name = "alabo";
+							v97.Parent = l__HumanoidRootPart__96;
+							delay(p44, function()
+								v97:Destroy();
+							end);
+							wait(1);
+							l__Knock__89:FireServer(l__Humanoid__95);
+						end;
+					end;
+				end;
+			end;
+		end;	
+	end;
+end;
+local l__Damage13__92 = l__ReplicatedStorage__1.Damage13;
+function hito5(p48, p49, p50, p51, p52, p53)
+	if l__Disabled__22.Value == true then
+		return;
+	end;
+	local v98, v99, v100 = pairs(workspace:GetChildren());
+	while true do
+		local v101, v102 = v98(v99, v100);
+		if v101 then
+
+		else
+			break;
+		end;
+		if p48.Anchored == true then
+			return;
+		end;
+		if v102:FindFirstChild("Humanoid") then
+			if v102:FindFirstChild("HumanoidRootPart") then
+				if v102 ~= l__Character__4 then
+					if (v102:FindFirstChild("HumanoidRootPart").Position - p48.Position).magnitude < p49 then
+						if v102:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+							if p48.Anchored then
+								return;
+							end;
+							local l__Humanoid__103 = v102:FindFirstChild("Humanoid");
+							local l__HumanoidRootPart__104 = v102:FindFirstChild("HumanoidRootPart");
+							l__Damage13__92:FireServer(l__Humanoid__103, p50, p52, p53);
+							l__Knock__89:FireServer(l__Humanoid__103);
+							local v105 = Instance.new("StringValue");
+							v105.Name = "alabo";
+							v105.Parent = l__HumanoidRootPart__104;
+							delay(p51, function()
+								v105:Destroy();
+							end);
+						end;
+					end;
+				end;
+			end;
+		end;
+		if v102:FindFirstChild("Stand") then
+			if v102.Stand:FindFirstChild("Stand Torso") then
+				if v102 ~= l__Character__4 then
+					if v102 ~= l__Character__4[l__Stand__6.Name] then
+						if (v102.Stand:FindFirstChild("Stand Torso").Position - p48.Position).magnitude < p49 then
+							if v102:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+								if p48.Anchored then
+									return;
+								end;
+								local l__Humanoid__106 = v102:FindFirstChild("Humanoid");
+								local l__HumanoidRootPart__107 = v102:FindFirstChild("HumanoidRootPart");
+								l__Damage13__92:FireServer(l__Humanoid__106, p50, p52, p53);
+								l__Knock__89:FireServer(l__Humanoid__106);
+								local v108 = Instance.new("StringValue");
+								v108.Name = "alabo";
+								v108.Parent = l__HumanoidRootPart__107;
+								delay(p51, function()
+									v108:Destroy();
+								end);
+							end;
+						end;
+					end;
+				end;
+			end;
+		end;	
+	end;
+end;
+local l__Anchor__93 = l__ReplicatedStorage__1.Anchor;
+local u94 = l__Character__4["Right Arm"];
+local u95 = l__Character__4["Left Arm"];
+local u96 = l__Character__4["Right Leg"];
+local u97 = l__Character__4["Left Leg"];
+game.Lighting.TS.Changed:Connect(function()
+	if game.Lighting.TS.Value == true then
+		if u46 == true then
+			return;
+		else
+			l__Anchor__93:FireServer(l__Stand_Torso__8, true);
+			l__Anchor__93:FireServer(l__Stand_Right_Arm__9, true);
+			l__Anchor__93:FireServer(l__Stand_Left_Arm__10, true);
+			l__Anchor__93:FireServer(l__Stand_Right_Leg__11, true);
+			l__Anchor__93:FireServer(l__Stand_Left_Leg__12, true);
+			l__Anchor__93:FireServer(l__Stand_Head__8, true);
+			l__Anchor__93:FireServer(l__Torso__87, true);
+			l__Anchor__93:FireServer(u94, true);
+			l__Anchor__93:FireServer(u95, true);
+			l__Anchor__93:FireServer(u96, true);
+			l__Anchor__93:FireServer(u97, true);
+			l__Anchor__93:FireServer(l__Head__86, true);
+			return;
+		end;
+	end;
+	if game.Lighting.TS.Value == false then
+		l__Anchor__93:FireServer(l__Stand_Torso__8, false);
+		l__Anchor__93:FireServer(l__Stand_Right_Arm__9, false);
+		l__Anchor__93:FireServer(l__Stand_Left_Arm__10, false);
+		l__Anchor__93:FireServer(l__Stand_Right_Leg__11, false);
+		l__Anchor__93:FireServer(l__Stand_Left_Leg__12, false);
+		l__Anchor__93:FireServer(l__Stand_Head__8, false);
+		l__Anchor__93:FireServer(l__Torso__87, false);
+		l__Anchor__93:FireServer(u94, false);
+		l__Anchor__93:FireServer(u95, false);
+		l__Anchor__93:FireServer(u96, false);
+		l__Anchor__93:FireServer(u97, false);
+		l__Anchor__93:FireServer(l__Head__86, false);
+	end;
+end);
+if game.Lighting.TS.Value == true then
+	l__Anchor__93:FireServer(l__Stand_Torso__8, true);
+	l__Anchor__93:FireServer(l__Stand_Right_Arm__9, true);
+	l__Anchor__93:FireServer(l__Stand_Left_Arm__10, true);
+	l__Anchor__93:FireServer(l__Stand_Right_Leg__11, true);
+	l__Anchor__93:FireServer(l__Stand_Left_Leg__12, true);
+	l__Anchor__93:FireServer(l__Stand_Head__8, true);
+	l__Anchor__93:FireServer(l__Torso__87, true);
+	l__Anchor__93:FireServer(u94, true);
+	l__Anchor__93:FireServer(u95, true);
+	l__Anchor__93:FireServer(u96, true);
+	l__Anchor__93:FireServer(u97, true);
+	l__Anchor__93:FireServer(l__Head__86, true);
+end;
+game.Lighting.MC.Changed:Connect(function()
+	if game.Lighting.MC.Value == true then
+		l__LocalPlayer__3.PlayerGui:WaitForChild("Mindcrash").Enabled = true;
+		l__Anchor__93:FireServer(l__Torso__87, true);
+		l__Anchor__93:FireServer(u94, true);
+		l__Anchor__93:FireServer(u95, true);
+		l__Anchor__93:FireServer(u96, true);
+		l__Anchor__93:FireServer(u97, true);
+		l__Anchor__93:FireServer(l__Head__86, true);
+		return;
+	end;
+	if game.Lighting.MC.Value == false then
+		l__LocalPlayer__3.PlayerGui:WaitForChild("Mindcrash").Enabled = false;
+		l__Anchor__93:FireServer(l__Torso__87, false);
+		l__Anchor__93:FireServer(u94, false);
+		l__Anchor__93:FireServer(u95, false);
+		l__Anchor__93:FireServer(u96, false);
+		l__Anchor__93:FireServer(u97, false);
+		l__Anchor__93:FireServer(l__Head__86, false);
+	end;
+end);
+if game.Lighting.MC.Value == true then
+	l__LocalPlayer__3.PlayerGui:WaitForChild("Mindcrash").Enabled = true;
+	l__Anchor__93:FireServer(l__Torso__87, true);
+	l__Anchor__93:FireServer(u94, true);
+	l__Anchor__93:FireServer(u95, true);
+	l__Anchor__93:FireServer(u96, true);
+	l__Anchor__93:FireServer(u97, true);
+	l__Anchor__93:FireServer(l__Head__86, true);
+end;
+l__ReplicatedStorage__1.BerserkClient.OnClientEvent:connect(function()
+	game.Lighting.Ambient = Color3.fromRGB(0, 0, 122);
+	game.Lighting.Berserk.Enabled = true;
+	l__Humanoid__5.WalkSpeed = 4;
+	l__Humanoid__5:SetStateEnabled(3, false);
+	wait(2.5);
+	l__Humanoid__5.WalkSpeed = 16;
+	l__Humanoid__5:SetStateEnabled(3, true);
+	game.Lighting.Ambient = Color3.fromRGB(150, 150, 150);
+	game.Lighting.Berserk.Enabled = false;
+end);
+local l__Die__98 = l__StandHumanoidRootPart__7.Die;
+local l__Death__99 = l__ReplicatedStorage__1.Death;
+l__Humanoid__5.HealthChanged:connect(function()
+	if l__Humanoid__5.Health < 1 then
+		for v109, v110 in pairs(l__Stand__6:GetChildren()) do
+			coroutine.resume(coroutine.create(function()
+				for v111 = 1, 5 do
+					if v110 ~= l__StandHumanoidRootPart__7 and v110.ClassName ~= "Sound" then
+						wait();
+						l__Transparency__13:FireServer(v110, v110.Transparency + 0.2);
+						l__Transparency__13:FireServer(l__face__14, v110.Transparency + 0.2);
+					end;
+				end;
+				if v110 ~= l__StandHumanoidRootPart__7 then
+					l__Transparency__13:FireServer(v110, 1);
+					l__Transparency__13:FireServer(l__face__14, 1);
+				end;
+			end));
+		end;
+		l__LocalPlayer__3.PlayerGui:WaitForChild("DeathGUI").Enabled = true;
+		l__Humanoid__5:SetStateEnabled(3, false);
+		l__Humanoid__5:SetStateEnabled(15, false);
+		l__Die__98:Play();
+		l__Death__99:FireServer(false);
+	end;
+end);
+local l__Knocked__100 = l__ReplicatedStorage__1.Knocked;
+local l__GetUp__101 = l__ReplicatedStorage__1.GetUp;
+l__ReplicatedStorage__1.KnockClient.OnClientEvent:connect(function(p54)
+	if l__Character__4.Block.Value == true then
+		return;
+	end;
+	l__Knocked__100:FireServer();
+	l__Humanoid__5:SetStateEnabled(3, false);
+	wait(1.25);
+	if l__Humanoid__5.Health >= 1 then
+		l__GetUp__101:FireServer();
+		l__Humanoid__5:SetStateEnabled(3, true);
+	end;
+end);
+l__Taunt__85.OnClientEvent:Connect(function()
+	u84 = false;
+end);
+l__VampireDamage__90.OnClientEvent:Connect(function()
+	v13:Play(0.1, 1, 1);
+	u32 = true;
+	u1 = true;
+	l__Bloodsuck__31:Play();
+	wait(2);
+	v13:Stop(0.2);
+	u1 = false;
+	l__Humanoid__5.JumpPower = 50;
+	l__Trail__18:FireServer(l__Stand__6.StandRarm.Trail, false);
+	u32 = false;
+end);
+local l__Voice2__102 = l__StandHumanoidRootPart__7.Voice2;
+l__VampireFreeze__91.OnClientEvent:Connect(function()
+	l__Humanoid__5.WalkSpeed = 0;
+	u32 = true;
+	wait(1);
+	v12:Play(0.1, 1, 1);
+	l__Voice2__102:Play();
+	wait(1);
+	l__Humanoid__5.WalkSpeed = 16;
+	u1 = false;
+	l__Humanoid__5.JumpPower = 50;
+	l__Trail__18:FireServer(l__Stand__6.StandRarm.Trail, false);
+	l__Trail__18:FireServer(l__Stand__6.StandLarm.Trail, false);
+	u32 = false;
+end);
+wait(45);
+u63 = false;
+u72 = false;
